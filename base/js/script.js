@@ -207,11 +207,35 @@ $(function() {
 // });
 
 // hover(handlerIn, handlerOut)
-$(".green-box").hover(function(){
-$(this).stop().fadeTo(500,0.2);
-},function(){
-$(this).fadeTo(500,1);
+// $(".green-box").hover(function(){
+// $(this).stop().fadeTo(500,0.2);
+// },function(){
+// $(this).fadeTo(500,1);
+// });
+
+// Adding same handler for multiple events
+// $("html").on("click keydown", function(){
+//   alert("Mouse was clicked");
+// });
+
+// A mini challenge was given for same image sliding but with  click
+var images = [
+  'images/laptop-mobile_small.jpg',
+  'images/laptop-on-table_small.jpg',
+  'images/people-office-group-team_small.jpg'
+];
+
+var i = 0;
+$(".gallery").find("img").on("click",function(){
+  i = (i+1) % images.length;
+  $(this).fadeOut(function(){
+    $(this).attr("src",images[i]).fadeIn();
+  });
 });
+
+
+
+
 
 
 
