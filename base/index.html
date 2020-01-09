@@ -23,10 +23,10 @@
     <p>Add elements here as you like to try out jQuery. <a href="/url" id ="anc">hey wassup dude?</a>
       This is your playground to test out anything that comes into your mind.</p>
     <p><strong>OR:</strong> Copy this project structure into a new directory first to create separate playgrounds for animations, manipulations, event handlers etc.</p>
-    <div class="gallery">
+    <!-- <div class="gallery">
       <img src="images/laptop-mobile_small.jpg" alt="">
 
-    </div>
+    </div> -->
     <!-- ul#list>li*4>{Main item $ }>ul>li*2>{Sub item $}   -->
     <ul class = "list" style="list-style-type:none;">
       <li>Coffee</li>
@@ -38,11 +38,28 @@
       <li>vodka</li>
       <li>wine</li>
     </ul>
-    <form action="">
-      <input type="text" value = "Peter" placeholder="name here"><br>
-      <input name = "cb" type="checkbox" checked> <label for="cb">Check me</label> <br>
-      <input type="email"  value = "Arun@gmail.com" placeholder="your good email here">
+    <form  id = "form" action="">
+      <input  id ="name" type="text" value = "Peter" placeholder="name here">
+      <span id="name-feedback"></span><br>
+      <input id = "checkbox" type="checkbox" checked> <label for="cb">Check me</label> 
+      <span id="checkbox-feedback"></span><br>
+      <input  id="email" type="email"  value = "Arun@gmail.com" placeholder="your good email here">
+      <span id="email-feedback"></span>
+      <br>
+      <input id= "password" type="password" value="password" placeholder="password here">
+      <span id="password-feedback"></span><br>
+      <select name="" id="selection">
+        <option value="">option 1</option>
+        <option value="">option 2</option>
+        <option value="">option 3</option>
+        <option value="">option 4</option>
+      </select>
+      <br><br>
       <input type="range" min="1" max="10" value="7">
+      <br>
+      <input type="textarea" placeholder="textarea" id = "message">
+      <span id="message-feedback"></span>
+      <input type="submit" value="submit">
     </form>
 
   </div>
