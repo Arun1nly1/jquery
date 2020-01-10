@@ -357,182 +357,193 @@ $(function() {
 
 // Complete Form Validation
 
-var form = $("#form");
-// To enable fast feeback of form
- enableFastFeedback(form);
+// var form = $("#form");
+// // To enable fast feeback of form
+//  enableFastFeedback(form);
 
-form.submit(function(event){
-  var name = $("#name").val();
-  var password = $("#password").val();
-  var email = $("#email").val();
-  var message = $("#message").val();
-  var isChecked = $("#checkbox").is(":checked");
+// form.submit(function(event){
+//   var name = $("#name").val();
+//   var password = $("#password").val();
+//   var email = $("#email").val();
+//   var message = $("#message").val();
+//   var isChecked = $("#checkbox").is(":checked");
 
-  validateNameField(name,event);
-  validatePasswordField(password,event);
-  validateMessageField(message,event);
-  validateCheckboxField(isChecked,event);
-  validateEmailField(email,event);
+//   validateNameField(name,event);
+//   validatePasswordField(password,event);
+//   validateMessageField(message,event);
+//   validateCheckboxField(isChecked,event);
+//   validateEmailField(email,event);
    
+// });
+
+// function enableFastFeedback(formElement){
+//    var nameInput = formElement.find("#name");
+//    var passwordInput = formElement.find("#password");
+//    var messageInput = formElement.find("#message");
+//    var checkboxInput = formElement.find("#checkbox");
+//   var emailInput = formElement.find("#email");
+//    nameInput.blur(function(event){
+//      var name = $(this).val();
+//      validateNameField(name,event);
+
+//      if(!isValidName(name)){
+//        $(this).css({"box-shadow":"0 0 4px #811", "border":"1px solid #600"})
+//      }
+//      else{
+//       $(this).css({"box-shadow":"0 0 4px #181", "border":"1px solid #060"})
+
+//      }
+
+//    });
+//    emailInput.blur(function(event){
+//     var email = $(this).val();
+//     validateEmailField(email,event);
+
+//     if(!isValidEmail(email)){
+//       $(this).css({"box-shadow":"0 0 4px #811", "border":"1px solid #600"})
+//     }
+//     else{
+//      $(this).css({"box-shadow":"0 0 4px #181", "border":"1px solid #060"})
+
+//     }
+
+//   });
+
+//    passwordInput.blur(function(event){
+//     var password = $(this).val();
+//     validatePasswordField(password,event);
+
+//     if(!isValidPassword(password)){
+//       $(this).css({"box-shadow":"0 0 4px #811", "border":"1px solid #600"})
+//     }
+//     else{
+//      $(this).css({"box-shadow":"0 0 4px #181", "border":"1px solid #060"})
+
+//     }
+
+//   });
+
+//   messageInput.blur(function(event){
+//     var message = $(this).val();
+//     validateMessageField(message,event);
+
+//     if(!isValidMessage(message)){
+//       $(this).css({"box-shadow":"0 0 4px #811", "border":"1px solid #600"})
+//     }
+//     else{
+//      $(this).css({"box-shadow":"0 0 4px #181", "border":"1px solid #060"})
+
+//     }
+
+//   });
+//   checkboxInput.change(function(event){
+//     var isChecked = $(this).is(":checked");
+//     validateCheckboxField(isChecked,event);
+
+//     if(!isChecked){
+//       $(this).add("label [for = 'cb]").css({"box-shadow":"0 0 4px #811", "border":"1px solid #600"})
+//     }
+//     else{
+//      $(this).add("label [for = 'cb]").css({"box-shadow":"0 0 4px #181", "border":"1px solid #060"})
+
+//     }
+
+//   });
+
+
+
+//   };
+
+// function validateNameField(name,event){
+//   if(!isValidName(name)){
+//     $("#name-feedback").text("Please enter at least two characters");
+//     event.preventDefault();
+//   }
+//   else{
+//     $("#name-feedback").text("");
+//   }
+// };
+
+// function validatePasswordField(password,event){
+//   if(!isValidPassword(password)){
+//     $("#password-feedback").text("Please enter at least six characters and a number");
+//     event.preventDefault();
+
+//   }
+//   else
+//   {
+//     $("#password-feedback").text("");
+
+
+//   }
+// };
+// function validateEmailField(email,event){
+//   if(!isValidEmail(email)){
+//     $("#email-feedback").text("Please enter a valid email");
+//     event.preventDefault();
+
+//   }
+//   else
+//   {
+//     $("#email-feedback").text("");
+
+
+//   }
+// };
+
+// function validateMessageField(message,event){
+//   if(!isValidMessage(message)){
+//     $("#message-feedback").text("Please enter something ");
+//     event.preventDefault();
+
+//   }
+//   else
+//   {
+//     $("#password-feedback").text("");
+
+
+//   }
+// };
+
+// function validateCheckboxField(isChecked,event){
+//   if(!isChecked) {
+//   $("#checkbox-feedback").text("Please agree to this");
+//   event.preventDefault();
+
+// }
+// else
+// {
+//   $("#checkbox-feedback").text("");
+
+
+// }
+
+// };
+
+
+// function isValidName(name){
+//   return name.length >= 2;  
+// };
+
+// function isValidPassword(password){
+//   return password.length >= 6 && /.*[0-9].*/.test(password);  
+// };
+// function isValidEmail(email){
+//   return email.length >= 10 && /.*[@].*/.test(email);  
+// };
+// function isValidMessage(message){
+//   return message.trim() != "";  
+// };
+
+// AJAX with jquery
+
+// $.get(), $.post(), $.ajax(), $.getJSON()
+// $.load() ===>>> to load page
+// $("#code").load("js/script.js");
+$("#code").load("base/js/script.js", function(response,status){
+    if (status == "error"){
+        alert("Could not find the page");
+    }
+    console.log(response);
 });
-
-function enableFastFeedback(formElement){
-   var nameInput = formElement.find("#name");
-   var passwordInput = formElement.find("#password");
-   var messageInput = formElement.find("#message");
-   var checkboxInput = formElement.find("#checkbox");
-  var emailInput = formElement.find("#email");
-   nameInput.blur(function(event){
-     var name = $(this).val();
-     validateNameField(name,event);
-
-     if(!isValidName(name)){
-       $(this).css({"box-shadow":"0 0 4px #811", "border":"1px solid #600"})
-     }
-     else{
-      $(this).css({"box-shadow":"0 0 4px #181", "border":"1px solid #060"})
-
-     }
-
-   });
-   emailInput.blur(function(event){
-    var email = $(this).val();
-    validateEmailField(email,event);
-
-    if(!isValidEmail(email)){
-      $(this).css({"box-shadow":"0 0 4px #811", "border":"1px solid #600"})
-    }
-    else{
-     $(this).css({"box-shadow":"0 0 4px #181", "border":"1px solid #060"})
-
-    }
-
-  });
-
-   passwordInput.blur(function(event){
-    var password = $(this).val();
-    validatePasswordField(password,event);
-
-    if(!isValidPassword(password)){
-      $(this).css({"box-shadow":"0 0 4px #811", "border":"1px solid #600"})
-    }
-    else{
-     $(this).css({"box-shadow":"0 0 4px #181", "border":"1px solid #060"})
-
-    }
-
-  });
-
-  messageInput.blur(function(event){
-    var message = $(this).val();
-    validateMessageField(message,event);
-
-    if(!isValidMessage(message)){
-      $(this).css({"box-shadow":"0 0 4px #811", "border":"1px solid #600"})
-    }
-    else{
-     $(this).css({"box-shadow":"0 0 4px #181", "border":"1px solid #060"})
-
-    }
-
-  });
-  checkboxInput.change(function(event){
-    var isChecked = $(this).is(":checked");
-    validateCheckboxField(isChecked,event);
-
-    if(!isChecked){
-      $(this).add("label [for = 'cb]").css({"box-shadow":"0 0 4px #811", "border":"1px solid #600"})
-    }
-    else{
-     $(this).add("label [for = 'cb]").css({"box-shadow":"0 0 4px #181", "border":"1px solid #060"})
-
-    }
-
-  });
-
-
-
-  };
-
-function validateNameField(name,event){
-  if(!isValidName(name)){
-    $("#name-feedback").text("Please enter at least two characters");
-    event.preventDefault();
-  }
-  else{
-    $("#name-feedback").text("");
-  }
-};
-
-function validatePasswordField(password,event){
-  if(!isValidPassword(password)){
-    $("#password-feedback").text("Please enter at least six characters and a number");
-    event.preventDefault();
-
-  }
-  else
-  {
-    $("#password-feedback").text("");
-
-
-  }
-};
-function validateEmailField(email,event){
-  if(!isValidEmail(email)){
-    $("#email-feedback").text("Please enter a valid email");
-    event.preventDefault();
-
-  }
-  else
-  {
-    $("#email-feedback").text("");
-
-
-  }
-};
-
-function validateMessageField(message,event){
-  if(!isValidMessage(message)){
-    $("#message-feedback").text("Please enter something ");
-    event.preventDefault();
-
-  }
-  else
-  {
-    $("#password-feedback").text("");
-
-
-  }
-};
-
-function validateCheckboxField(isChecked,event){
-  if(!isChecked) {
-  $("#checkbox-feedback").text("Please agree to this");
-  event.preventDefault();
-
-}
-else
-{
-  $("#checkbox-feedback").text("");
-
-
-}
-
-};
-
-
-function isValidName(name){
-  return name.length >= 2;  
-};
-
-function isValidPassword(password){
-  return password.length >= 6 && /.*[0-9].*/.test(password);  
-};
-function isValidEmail(email){
-  return email.length >= 10 && /.*[@].*/.test(email);  
-};
-function isValidMessage(message){
-  return message.trim() != "";  
-};
-
 });
