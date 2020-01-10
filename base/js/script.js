@@ -501,6 +501,7 @@ $(function() {
 //   {
 //     $("#password-feedback").text("");
 
+https://www.flickr.com/services/feeds/photos_public.gne
 
 //   }
 // };
@@ -540,10 +541,41 @@ $(function() {
 // $.get(), $.post(), $.ajax(), $.getJSON()
 // $.load() ===>>> to load page
 // $("#code").load("js/script.js");
-$("#code").load("base/js/script.js", function(response,status){
-    if (status == "error"){
-        alert("Could not find the page");
-    }
-    console.log(response);
+// $("#code").load("base/js/script.js", function(response,status){
+//     if (status == "error"){
+//         alert("Could not find the page");
+//     }
+//     console.log(response);
+// });
+
+// Flicker Api photo feed
+// JSON, $.getJSON()
+
+var flickrApiUrl = "https://www.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
+
+$.getJSON(flickrApiUrl,{
+// options
+tags : "sun, beach",
+tagmode : "any",
+format : "json"
+}).done(function(data){
+    // success
+    console.log(data);
+    $.each(data.items,function(index,item){
+        console.log(item);
+        $("<img>").attr("src",item.media.m).appendTo("#flickr");
+
+        if (index == 4){
+            return false;
+        }
+    });
+}).fail(function(){
+    // failure
+    alert("Ajax call failed")
 });
+
+
+
+
+
 });
