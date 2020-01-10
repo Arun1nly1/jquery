@@ -2,7 +2,7 @@ $(function() {
 //   // jQuery goes here...
 
 //   // Uncomment this line to fade out the red box on page load
-//   // $(".blue-box").fadeOut(1000);
+//   $(".blue-box").fadeOut(1000);
 //   // $(".blue-box").fadeTo(1000,0.5);
 //   // $(".blue-box").hide();
 //   // $(".blue-box").slideToggle(1000);
@@ -12,13 +12,13 @@ $(function() {
 //   // $(".blue-box").animate({
 //   //   "margin-left":"+=200px"
 //   // },1000,"swing")
-//   // $(".blue-box").animate({
-//   //   "margin-left":"200px",
-//   //   "opacity":"0",
-//   //   "height":"50px",
-//   //   "width":"50px",
-//   //   "margin-top": "50px"
-//   // },1000)
+//   $(".blue-box").animate({
+//     "margin-left":"200px",
+//     "opacity":"0",
+//     "height":"50px",
+//     "width":"50px",
+//     "margin-top": "50px"
+//   },1000);
 
 //   // $("p").animate({
 //   //    opacity : 0,
@@ -27,9 +27,9 @@ $(function() {
 //   // },1000)
 
 //   // Chaining the fading pattern,red first, blue second and green third...
-//   // $(".red-box").fadeTo(1000,0.2);
-//   // $(".green-box").delay(1000).fadeTo(1000,0.5);
-//   // $(".blue-box").delay(1000).fadeTo(1000,0.8).fadeOut().delay(1000).fadeIn();
+//   $(".red-box").fadeTo(1000,0.2);
+//   $(".green-box").delay(1000).fadeTo(1000,0.5);
+//   $(".blue-box").delay(1000).fadeTo(1000,0.8).fadeOut().delay(1000).fadeIn();
 //   // // This chaining is done using delay function
 
 
@@ -194,7 +194,7 @@ $(function() {
 // });
 
 // $(".green-box").hover(function(){
-//   $(this).text("I am hovered");
+//   $(this).text("I am Rajeev");
 // });
 
 // var blueBox = $(".blue-box");
@@ -357,9 +357,9 @@ $(function() {
 
 // Complete Form Validation
 
-// var form = $("#form");
+var form = $("#form");
 // // To enable fast feeback of form
-//  enableFastFeedback(form);
+ enableFastFeedback(form);
 
 // form.submit(function(event){
 //   var name = $("#name").val();
@@ -500,9 +500,6 @@ $(function() {
 //   else
 //   {
 //     $("#password-feedback").text("");
-
-https://www.flickr.com/services/feeds/photos_public.gne
-
 //   }
 // };
 
@@ -551,28 +548,28 @@ https://www.flickr.com/services/feeds/photos_public.gne
 // Flicker Api photo feed
 // JSON, $.getJSON()
 
-var flickrApiUrl = "https://www.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
+// var flickrApiUrl = "https://www.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
 
-$.getJSON(flickrApiUrl,{
-// options
-tags : "sun, beach",
-tagmode : "any",
-format : "json"
-}).done(function(data){
-    // success
-    console.log(data);
-    $.each(data.items,function(index,item){
-        console.log(item);
-        $("<img>").attr("src",item.media.m).appendTo("#flickr");
+// $.getJSON(flickrApiUrl,{
+// // options
+// tags : "sun, beach",
+// tagmode : "any",
+// format : "json"
+// }).done(function(data){
+//     // success
+//     console.log(data);
+//     $.each(data.items,function(index,item){
+//         console.log(item);
+//         $("<img>").attr("src",item.media.m).appendTo("#flickr");
 
-        if (index == 4){
-            return false;
-        }
-    });
-}).fail(function(){
-    // failure
-    alert("Ajax call failed")
-});
+//         if (index == 4){
+//             return false;
+//         }
+//     });
+// }).fail(function(){
+//     // failure
+//     alert("Ajax call failed")
+// });
 
 
 
